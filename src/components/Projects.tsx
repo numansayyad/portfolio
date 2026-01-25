@@ -1,0 +1,126 @@
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
+
+interface Project {
+  title: string
+  description: string
+  technologies: string[]
+  githubUrl: string
+  liveUrl: string
+  image: string
+}
+
+const Projects = () => {
+  const projects: Project[] = [
+    {
+      title: 'E-Commerce Platform',
+      description:
+        'A full-stack e-commerce solution with user authentication, product management, shopping cart, and payment integration.',
+      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://example.com',
+      image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=E-Commerce+Platform',
+    },
+    {
+      title: 'Task Management App',
+      description:
+        'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://example.com',
+      image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Task+Management',
+    },
+    {
+      title: 'Weather Dashboard',
+      description:
+        'A beautiful weather dashboard that displays current weather conditions and forecasts using a weather API.',
+      technologies: ['React', 'JavaScript', 'CSS3', 'API Integration'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://example.com',
+      image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Weather+Dashboard',
+    },
+    {
+      title: 'Social Media Analytics',
+      description:
+        'An analytics dashboard for social media metrics with data visualization, reporting, and insights.',
+      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Chart.js'],
+      githubUrl: 'https://github.com',
+      liveUrl: 'https://example.com',
+      image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Analytics+Dashboard',
+    },
+  ]
+
+  return (
+    <section id="projects" className="section-padding bg-white">
+      <div className="container-custom">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            My <span className="text-primary-600">Projects</span>
+          </h2>
+          <div className="w-24 h-1 bg-primary-600 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            A showcase of my recent work and projects
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          {projects.map((project, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+            >
+              <div className="relative h-48 bg-gradient-to-br from-primary-400 to-primary-600">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
+              </div>
+              
+              <div className="p-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  {project.title}
+                </h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 bg-primary-100 text-primary-700 rounded-full text-sm font-medium"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex gap-4">
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                  >
+                    <FaGithub /> Code
+                  </a>
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                  >
+                    <FaExternalLinkAlt /> Live Demo
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Projects
