@@ -15,7 +15,7 @@ const Projects = () => {
       title: 'GPTflow Chatbot',
       description:
         'A full-stack AI chatbot with real-time conversations, chat history, and OpenAI integration..',
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express','Open AI'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'Open AI'],
       githubUrl: 'https://github.com/numansayyad/GPTflow-Chatbott',
       liveUrl: 'https://example.com',
       image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=E-Commerce+Platform',
@@ -24,17 +24,16 @@ const Projects = () => {
       title: 'ATM Banking System ',
       description:
         'A desktop-based ATM Banking System built using Core Java, Java Swing, JDBC, and MySQL. This project simulates real-world ATM operations with a clean GUI and secure database-backed transactions.',
-      technologies: ['Java Swing', 'Core Java', 'AWT', 'JDBC','MySQL'],
+      technologies: ['Java Swing', 'Core Java', 'AWT', 'JDBC', 'MySQL'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-     image: '/assets/atm.png',
-
+      image: '/assets/atm.png',
     },
     {
       title: 'Doctor Appointment System',
       description:
         'built Sanjivani+ web-based Doctor Appointment System to make the booking process simple, fast, and paperless.in this project, patients can easily choose a doctor and book appointments online, while doctors can log in to view and manage their scheduled appointments. ',
-      technologies: ['Python', 'Flask', 'CSS', 'HTML','MongoDB'],
+      technologies: ['Python', 'Flask', 'CSS', 'HTML', 'MongoDB'],
       githubUrl: 'https://github.com/numansayyad/doctor_appointment_system',
       liveUrl: 'https://example.com',
       image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Weather+Dashboard',
@@ -43,12 +42,11 @@ const Projects = () => {
       title: 'Post Management Application  ',
       description:
         'a full-stack Post Management web application called “Post Verse” using Node.js, Express, and EJS.This project helped me understand how backend and frontend work together.',
-      technologies: ['Node.js', 'EJS', 'CSS', 'Express.js','RESTAPI'],
+      technologies: ['Node.js', 'EJS', 'CSS', 'Express.js', 'RESTAPI'],
       githubUrl: 'https://github.com/numansayyad/versapost-project',
       liveUrl: 'https://example.com',
       image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Analytics+Dashboard',
     },
-  
   ]
 
   return (
@@ -78,7 +76,7 @@ const Projects = () => {
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300"></div>
               </div>
-              
+
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   {project.title}
@@ -86,7 +84,7 @@ const Projects = () => {
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -97,21 +95,22 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
+
                 <div className="flex gap-4">
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                    className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors font-medium no-underline"
                   >
                     <FaGithub /> Code
                   </a>
+
                   <a
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors font-medium"
+                    className="flex items-center gap-2 text-gray-700 hover:text-primary-600 transition-colors font-medium no-underline"
                   >
                     <FaExternalLinkAlt /> Live Demo
                   </a>
