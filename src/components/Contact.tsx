@@ -57,12 +57,13 @@ const Contact = () => {
                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
                     <a
                       href="mailto:numann.sayyad@gmail.com"
-                      className="text-gray-600 hover:text-primary-600 transition-colors"
+                      className="text-gray-600 hover:text-primary-600 transition-colors no-underline"
                     >
                       numann.sayyad@gmail.com
                     </a>
                   </div>
                 </div>
+
 
 
                 <div className="flex items-start gap-4">
@@ -73,9 +74,9 @@ const Contact = () => {
                     <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
                     <a
                       href="tel:+917058151583"
-                      className="text-gray-600 hover:text-primary-600 transition-colors"
+                      className="text-gray-600 hover:text-primary-600 transition-colors no-underline"
                     >
-                      +91 7058151583
+                      +91-7058151583
                     </a>
                   </div>
                 </div>

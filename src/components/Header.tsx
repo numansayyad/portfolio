@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from 'react'
 import { FaBars, FaTimes } from 'react-icons/fa'
 
@@ -25,11 +27,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
   }
 
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+    document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset'
     return () => {
       document.body.style.overflow = 'unset'
     }
@@ -38,20 +36,19 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-lg py-3'
-          : 'bg-transparent py-5'
+        isScrolled ? 'bg-white shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
       <nav className="container-custom">
         <div className="flex items-center justify-between">
+          {/* Logo */}
           <a
             href="#home"
             onClick={(e) => {
               e.preventDefault()
               handleNavClick('#home')
             }}
-            className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors"
+            className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors no-underline"
           >
             Portfolio
           </a>
@@ -66,7 +63,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
                     e.preventDefault()
                     handleNavClick(link.href)
                   }}
-                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-primary-600 font-medium transition-colors no-underline"
                 >
                   {link.name}
                 </a>
@@ -100,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled }) => {
                     e.preventDefault()
                     handleNavClick(link.href)
                   }}
-                  className="text-2xl text-gray-700 hover:text-primary-600 font-medium transition-colors"
+                  className="text-2xl text-gray-700 hover:text-primary-600 font-medium transition-colors no-underline"
                 >
                   {link.name}
                 </a>
