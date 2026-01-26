@@ -12,41 +12,43 @@ interface Project {
 const Projects = () => {
   const projects: Project[] = [
     {
-      title: 'E-Commerce Platform',
+      title: 'GPTflow Chatbot',
       description:
-        'A full-stack e-commerce solution with user authentication, product management, shopping cart, and payment integration.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express'],
-      githubUrl: 'https://github.com',
+        'A full-stack AI chatbot with real-time conversations, chat history, and OpenAI integration..',
+      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express','Open AI'],
+      githubUrl: 'https://github.com/numansayyad/GPTflow-Chatbott',
       liveUrl: 'https://example.com',
       image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=E-Commerce+Platform',
     },
     {
-      title: 'Task Management App',
+      title: 'ATM Banking System ',
       description:
-        'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Firebase'],
+        'A desktop-based ATM Banking System built using Core Java, Java Swing, JDBC, and MySQL. This project simulates real-world ATM operations with a clean GUI and secure database-backed transactions.',
+      technologies: ['Java Swing', 'Core Java', 'AWT', 'JDBC','MySQL'],
       githubUrl: 'https://github.com',
       liveUrl: 'https://example.com',
-      image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Task+Management',
+     image: '/assets/atm.png',
+
     },
     {
-      title: 'Weather Dashboard',
+      title: 'Doctor Appointment System',
       description:
-        'A beautiful weather dashboard that displays current weather conditions and forecasts using a weather API.',
-      technologies: ['React', 'JavaScript', 'CSS3', 'API Integration'],
-      githubUrl: 'https://github.com',
+        'built Sanjivani+ web-based Doctor Appointment System to make the booking process simple, fast, and paperless.in this project, patients can easily choose a doctor and book appointments online, while doctors can log in to view and manage their scheduled appointments. ',
+      technologies: ['Python', 'Flask', 'CSS', 'HTML','MongoDB'],
+      githubUrl: 'https://github.com/numansayyad/doctor_appointment_system',
       liveUrl: 'https://example.com',
       image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Weather+Dashboard',
     },
     {
-      title: 'Social Media Analytics',
+      title: 'Post Management Application  ',
       description:
-        'An analytics dashboard for social media metrics with data visualization, reporting, and insights.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Chart.js'],
-      githubUrl: 'https://github.com',
+        'a full-stack Post Management web application called “Post Verse” using Node.js, Express, and EJS.This project helped me understand how backend and frontend work together.',
+      technologies: ['Node.js', 'EJS', 'CSS', 'Express.js','RESTAPI'],
+      githubUrl: 'https://github.com/numansayyad/versapost-project',
       liveUrl: 'https://example.com',
       image: 'https://via.placeholder.com/600x400/0ea5e9/ffffff?text=Analytics+Dashboard',
     },
+  
   ]
 
   return (
