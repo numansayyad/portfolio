@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="flex items-center gap-2 text-gray-400">
             <span>Made with</span>
             <FaHeart className="text-red-500 animate-pulse" />
-            <span>by Numan Hayyum Sayyad</span>
+            <span>by Numan Sayyad</span>
           </div>
 
           <div className="flex space-x-6">
