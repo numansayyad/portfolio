@@ -1,8 +1,6 @@
 import { FaGithub, FaLinkedin, FaEnvelope, FaHeart } from 'react-icons/fa'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
   return (
     <footer className="bg-gray-900 text-white py-8">
       <div className="container-custom">
