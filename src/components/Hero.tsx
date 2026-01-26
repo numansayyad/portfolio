@@ -11,9 +11,23 @@ const Hero = () => {
         <div className="max-w-3xl mx-auto">
           <div className="mb-6">
             <div className="inline-block rounded-full bg-primary-100 p-4 mb-6">
-              <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 mx-auto flex items-center justify-center text-5xl font-bold text-white">
+              {/* <div className="w-32 h-32 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 mx-auto flex items-center justify-center text-5xl font-bold text-white">
                 NH
-              </div>
+              </div> */}
+
+              {/* <img
+  src="/assets/numan.jpeg"
+  alt="Numan Sayyad"
+  className="w-32 h-32 rounded-full object-cover mx-auto border-4 border-primary-600 shadow-lg"
+/> */}
+
+<img
+  src="/assets/numan.jpeg"
+  alt="Numan Sayyad"
+  className="w-40 h-40 rounded-full object-cover mx-auto border-4 border-primary-600 shadow-xl"
+/>
+
+
             </div>
           </div>
           
