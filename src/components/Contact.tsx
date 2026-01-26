@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+// import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -46,7 +47,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Contact Information
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 p-3 rounded-lg">
@@ -62,6 +63,25 @@ const Contact = () => {
                     </a>
                   </div>
                 </div>
+
+
+                <div className="flex items-start gap-4">
+                  <div className="bg-primary-100 p-3 rounded-lg">
+                    <FaPhoneAlt className="text-primary-600 text-xl" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
+                    <a
+                      href="tel:+917058151583"
+                      className="text-gray-600 hover:text-primary-600 transition-colors"
+                    >
+                      +91 7058151583
+                    </a>
+                  </div>
+                </div>
+
+
+
 
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 p-3 rounded-lg">
