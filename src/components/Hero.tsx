@@ -22,7 +22,7 @@ const Hero = () => {
 /> */}
 
 <img
-  src="/assets/numan.jpeg"
+  src="/numan.jpeg"
   alt="Numan Sayyad"
   className="w-40 h-40 rounded-full object-cover mx-auto border-4 border-primary-600 shadow-xl"
 />
