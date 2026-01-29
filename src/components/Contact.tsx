@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from 'react-icons/fa'
 
 const Contact = () => {
@@ -21,14 +21,34 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! I will get back to you soon.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
+
+    emailjs
+      .send(
+        'service_jfgqy8a',        // Service ID
+        'template_5fzhsvb',      // Template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'BH1j19ToF2jMJBd2l'      // Public Key
+      )
+      .then(() => {
+        alert('Message sent successfully! I will get back to you soon.')
+        setFormData({ name: '', email: '', subject: '', message: '' })
+      })
+      .catch((error) => {
+        console.error('EmailJS Error:', error)
+        alert('Failed to send message. Please try again.')
+      })
   }
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-primary-50 to-gray-50">
+    <section
+      id="contact"
+      className="section-padding bg-gradient-to-br from-primary-50 to-gray-50"
+    >
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -64,8 +84,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-
-
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 p-3 rounded-lg">
                     <FaPhoneAlt className="text-primary-600 text-xl" />
@@ -81,16 +99,15 @@ const Contact = () => {
                   </div>
                 </div>
 
-
-
-
                 <div className="flex items-start gap-4">
                   <div className="bg-primary-100 p-3 rounded-lg">
                     <FaMapMarkerAlt className="text-primary-600 text-xl" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Location</h4>
-                    <p className="text-gray-600">Baramati, Maharashtra, India</p>
+                    <p className="text-gray-600">
+                      Baramati, Maharashtra, India
+                    </p>
                   </div>
                 </div>
               </div>
@@ -111,84 +128,68 @@ const Contact = () => {
               className="bg-white rounded-2xl p-8 shadow-xl"
             >
               <div className="mb-6">
-                <label
-                  htmlFor="name"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
+                <label className="block text-gray-700 font-semibold mb-2">
                   Name
                 </label>
                 <input
                   type="text"
-                  id="name"
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
                   placeholder="Your Name"
                 />
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="email"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
+                <label className="block text-gray-700 font-semibold mb-2">
                   Email
                 </label>
                 <input
                   type="email"
-                  id="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
                   placeholder="your.email@example.com"
                 />
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="subject"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
+                <label className="block text-gray-700 font-semibold mb-2">
                   Subject
                 </label>
                 <input
                   type="text"
-                  id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none"
                   placeholder="Subject"
                 />
               </div>
 
               <div className="mb-6">
-                <label
-                  htmlFor="message"
-                  className="block text-gray-700 font-semibold mb-2"
-                >
+                <label className="block text-gray-700 font-semibold mb-2">
                   Message
                 </label>
                 <textarea
-                  id="message"
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 outline-none resize-none"
                   placeholder="Your Message"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="w-full bg-primary-600 text-white py-3 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
                 Send Message
               </button>
