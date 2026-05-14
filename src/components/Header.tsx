@@ -1,7 +1,9 @@
 
 
 import { useState, useEffect } from 'react'
-import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import moonIcon from '../assets/moon_icon.svg'
+import sunIcon from '../assets/sun_icon.svg'
 
 interface HeaderProps {
   isScrolled: boolean
@@ -75,10 +77,21 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             </ul>
             <button
               onClick={onThemeToggle}
-              className="rounded-full border border-slate-300 bg-white p-3 text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary-500 hover:text-primary-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:text-primary-400"
+              className={`flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${
+                isDarkMode
+                  ? 'bg-slate-900 border-slate-700 text-white'
+                  : 'bg-white border-slate-300 text-slate-900'
+              }`}
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
+              <img
+                src={isDarkMode ? moonIcon : sunIcon}
+                alt={isDarkMode ? 'Dark mode active' : 'Light mode active'}
+                style={{ filter: 'invert(1) brightness(1.15)' }}
+                className={`w-6 h-6 transform transition-all duration-300 ease-out ${
+                  isDarkMode ? 'rotate-0' : '-rotate-12'
+                } group-hover:scale-110`}
+              />
             </button>
           </div>
 
@@ -104,10 +117,21 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             <div className="flex items-center justify-between px-5 pt-6">
               <button
                 onClick={onThemeToggle}
-                className="rounded-full border border-slate-300 bg-white px-4 py-3 text-slate-700 shadow-sm transition-all duration-300 hover:border-primary-500 hover:text-primary-600 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-200 dark:hover:text-primary-400"
+                className={`flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
+                  isDarkMode
+                    ? 'bg-slate-900 border-slate-700 text-white'
+                    : 'bg-white border-slate-300 text-slate-900'
+                }`}
                 aria-label="Toggle dark mode"
               >
-                {isDarkMode ? <FaSun size={18} /> : <FaMoon size={18} />}
+                <img
+                  src={isDarkMode ? moonIcon : sunIcon}
+                  alt={isDarkMode ? 'Dark mode active' : 'Light mode active'}
+                  style={{ filter: 'invert(1) brightness(1.15)' }}
+                  className={`w-6 h-6 transform transition-all duration-300 ease-out ${
+                    isDarkMode ? 'rotate-0' : '-rotate-12'
+                  } group-hover:scale-110`}
+                />
               </button>
               <button
                 className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors"
