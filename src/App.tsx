@@ -38,12 +38,13 @@ function App() {
   }
 
   return (
-    <div className="App bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+    <div className="App min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 ease-out dark:bg-slate-950 dark:text-slate-100">
       <Header
         isScrolled={isScrolled}
         isDarkMode={isDarkMode}
         onThemeToggle={handleThemeToggle}
       />
+      <div className="h-20 md:h-24" />
       <Hero />
       <About />
       <Skills />
