@@ -9,6 +9,21 @@ import Footer from './components/Footer'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme')
+    const initialTheme = savedTheme
+      ? savedTheme === 'dark'
+      : window.matchMedia('(prefers-color-scheme: dark)').matches
+
+    setIsDarkMode(initialTheme)
+  }, [])
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode)
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+  }, [isDarkMode])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,9 +33,17 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const handleThemeToggle = () => {
+    setIsDarkMode((prev) => !prev)
+  }
+
   return (
-    <div className="App">
-      <Header isScrolled={isScrolled} />
+    <div className="App bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
+      <Header
+        isScrolled={isScrolled}
+        isDarkMode={isDarkMode}
+        onThemeToggle={handleThemeToggle}
+      />
       <Hero />
       <About />
       <Skills />
