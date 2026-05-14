@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             }}
             className="text-2xl font-bold text-primary-600 hover:text-primary-700 transition-colors no-underline"
           >
-            Porfolio
+            Portfolio
           </a>
 
           <div className="hidden md:flex items-center gap-6">
