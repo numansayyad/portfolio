@@ -26,8 +26,18 @@ function App() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches
   })
 
+  const applyTheme = (nextMode: boolean) => {
+    if (typeof document === 'undefined') {
+      return
+    }
+
+    const root = document.documentElement
+    root.classList.toggle('dark', nextMode)
+    root.style.colorScheme = nextMode ? 'dark' : 'light'
+  }
+
   useLayoutEffect(() => {
-    document.documentElement.classList.toggle('dark', isDarkMode)
+    applyTheme(isDarkMode)
   }, [isDarkMode])
 
   useEffect(() => {
@@ -47,7 +57,11 @@ function App() {
   }, [])
 
   const handleThemeToggle = () => {
-    setIsDarkMode((prev) => !prev)
+    setIsDarkMode((prev) => {
+      const nextMode = !prev
+      applyTheme(nextMode)
+      return nextMode
+    })
   }
 
   return (

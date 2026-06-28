@@ -1,6 +1,6 @@
 
 
-import { useState, useEffect, useRef, type PointerEvent } from 'react'
+import { useState, useEffect } from 'react'
 import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
 
 interface HeaderProps {
@@ -11,7 +11,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const pointerTriggered = useRef(false)
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -76,20 +75,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             </ul>
             <button
               type="button"
-              onPointerUp={(event: PointerEvent<HTMLButtonElement>) => {
-                const isTouch = event.pointerType !== 'mouse'
-                pointerTriggered.current = isTouch
-                if (isTouch) {
-                  onThemeToggle()
-                }
-              }}
-              onClick={() => {
-                if (pointerTriggered.current) {
-                  pointerTriggered.current = false
-                  return
-                }
-                onThemeToggle()
-              }}
+              onClick={onThemeToggle}
               className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${
                 isDarkMode
                   ? 'bg-slate-900 border-slate-700 text-white'
@@ -109,20 +95,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
           <div className="flex items-center gap-3 md:hidden relative z-50">
             <button
               type="button"
-              onPointerUp={(event: PointerEvent<HTMLButtonElement>) => {
-                const isTouch = event.pointerType !== 'mouse'
-                pointerTriggered.current = isTouch
-                if (isTouch) {
-                  onThemeToggle()
-                }
-              }}
-              onClick={() => {
-                if (pointerTriggered.current) {
-                  pointerTriggered.current = false
-                  return
-                }
-                onThemeToggle()
-              }}
+              onClick={onThemeToggle}
               className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
                 isDarkMode
                   ? 'bg-slate-900 border-slate-700 text-white'
