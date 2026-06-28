@@ -168,7 +168,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
           >
             <div className="flex items-center justify-start px-5 pt-6">
               <button
-                className="inline-flex h-12 w-12 items-center justify-center rounded-none border-none bg-transparent text-slate-700 transition-colors hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400"
+               className="inline-flex h-12 w-12 items-center justify-center rounded-none border-none bg-transparent text-slate-700 transition-colors hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-300"
                 onClick={() => setIsMenuOpen(false)}
                 aria-label="Close menu"
               >
