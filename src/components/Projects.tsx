@@ -1,8 +1,8 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import studentEnrollmentImage from '../assets/student-enrollment.svg'
+import studentManagementImage from '../assets/student-management.svg'
 import atmImage from '../assets/atm.svg'
-import appointmentImage from '../assets/appointment.svg'
-import postverseImage from '../assets/post-verse.svg'
+import employeeManagementImage from '../assets/employee-management.svg'
 
 interface Project {
   title: string
@@ -34,22 +34,22 @@ const Projects = () => {
       image: atmImage,
     },
     {
-      title: 'Doctor Appointment System',
+      title: 'Employee Management System (Console-Based)',
       description:
-        'A hospital appointment platform where patients can book consultations online and doctors manage schedules.',
-      technologies: ['Python', 'Flask', 'HTML', 'CSS', 'MongoDB'],
-      githubUrl: 'https://github.com/numansayyad/doctor_appointment_system',
-      liveUrl: 'https://example.com',
-      image: appointmentImage,
+        'Developed a console-based employee management system using Core Java, JDBC, and MySQL with layered DAO, Service, and Controller architecture for CRUD operations and database connectivity.',
+      technologies: ['Core Java', 'JDBC', 'MySQL', 'DAO', 'Service', 'Controller'],
+      githubUrl: '',
+      liveUrl: '',
+      image: employeeManagementImage,
     },
     {
-      title: 'Post Management App',
+      title: 'Student Management System',
       description:
-        'A full-stack post management application built with Node.js, Express, and EJS to create, edit, and delete posts.',
-      technologies: ['Node.js', 'Express.js', 'EJS', 'CSS', 'REST API'],
-      githubUrl: 'https://github.com/numansayyad/versapost-project',
-      liveUrl: 'https://example.com',
-      image: postverseImage,
+        'Developed a desktop-based student management system using Core Java, Swing, MySQL, and JDBC with role-based authentication, CRUD operations, and interactive dashboards.',
+      technologies: ['Core Java', 'Swing', 'MySQL', 'JDBC', 'PreparedStatement'],
+      githubUrl: 'https://github.com/numansayyad/student-management-system',
+      liveUrl: '',
+      image: studentManagementImage,
     },
   ]
 
@@ -101,23 +101,27 @@ const Projects = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-4">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium no-underline"
-                  >
-                    <FaGithub /> Code
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium no-underline"
+                    >
+                      <FaGithub /> Code
+                    </a>
+                  )}
 
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium no-underline"
-                  >
-                    <FaExternalLinkAlt /> Live Demo
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-slate-700 dark:text-slate-200 hover:text-primary-600 dark:hover:text-primary-400 transition-colors font-medium no-underline"
+                    >
+                      <FaExternalLinkAlt /> Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

@@ -2,7 +2,6 @@ import {
   FaReact, 
   FaHtml5, 
   FaCss3Alt, 
-  FaNode,
   FaGitAlt,
   FaBootstrap,
   FaCode
@@ -11,7 +10,9 @@ import {
   SiTailwindcss, 
   SiMongodb, 
   SiMysql,
-  SiExpress
+  SiExpress,
+  SiSpringboot,
+  SiApachemaven
 } from 'react-icons/si'
 
 const Skills = () => {
@@ -27,7 +28,7 @@ const Skills = () => {
     { name: 'Java', icon: FaCode, color: 'text-orange-600' },
     { name: 'Advance Java', icon: FaCode, color: 'text-orange-700' },
     { name: 'REST API', icon: SiExpress, color: 'text-slate-700' },
-    { name: 'Node.js', icon: FaNode, color: 'text-green-600' },
+    { name: 'Spring Boot', icon: SiSpringboot, color: 'text-green-600' },
   ]
 
   const databaseSkills = [
@@ -38,6 +39,7 @@ const Skills = () => {
   const toolsSkills = [
     { name: 'Git', icon: FaGitAlt, color: 'text-orange-600' },
     { name: 'GitHub', icon: FaGitAlt, color: 'text-slate-800' },
+    { name: 'Maven', icon: SiApachemaven, color: 'text-orange-600' },
   ]
 
   return (
