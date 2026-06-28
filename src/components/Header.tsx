@@ -138,15 +138,21 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
               )}
             </button>
 
-            <button
-              type="button"
-              className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors relative z-50"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-              style={{ touchAction: 'manipulation' }}
-            >
-              {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
-            </button>
+            {!isMenuOpen && (
+              <button
+                type="button"
+                className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
+                  isDarkMode
+                    ? 'bg-slate-900 border-slate-700 text-white'
+                    : 'bg-white border-slate-300 text-slate-900'
+                }`}
+                onClick={() => setIsMenuOpen(true)}
+                aria-label="Open menu"
+                style={{ zIndex: 9999, touchAction: 'manipulation' }}
+              >
+                <FaBars size={24} />
+              </button>
+            )}
           </div>
         </div>
 
@@ -160,9 +166,9 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
               isMenuOpen ? 'translate-x-0' : 'translate-x-full'
             } overflow-y-auto`}
           >
-            <div className="flex items-center justify-between px-5 pt-6">
-                <button
-                className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors"
+            <div className="flex items-center justify-start px-5 pt-6">
+              <button
+                className="inline-flex h-12 w-12 items-center justify-center rounded-none border-none bg-transparent text-slate-700 transition-colors hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400"
                 onClick={() => setIsMenuOpen(false)}
                 aria-label="Close menu"
               >
