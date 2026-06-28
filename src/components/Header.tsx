@@ -1,9 +1,7 @@
 
 
-import { useState, useEffect } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import moonIcon from '../assets/moon_icon.svg'
-import sunIcon from '../assets/sun_icon.svg'
+import { useState, useEffect, useRef, type PointerEvent, type MouseEvent } from 'react'
+import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
 
 interface HeaderProps {
   isScrolled: boolean
@@ -13,6 +11,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pointerTriggered = useRef(false)
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -76,45 +75,67 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
               ))}
             </ul>
             <button
-              onClick={onThemeToggle}
-              className={`group flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${
+              type="button"
+              onPointerUp={(event: PointerEvent<HTMLButtonElement>) => {
+                const isTouch = event.pointerType !== 'mouse'
+                pointerTriggered.current = isTouch
+                if (isTouch) {
+                  onThemeToggle()
+                }
+              }}
+              onClick={(event: MouseEvent<HTMLButtonElement>) => {
+                if (pointerTriggered.current) {
+                  pointerTriggered.current = false
+                  return
+                }
+                onThemeToggle()
+              }}
+              className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:-translate-y-0.5 hover:shadow-xl active:scale-95 ${
                 isDarkMode
                   ? 'bg-slate-900 border-slate-700 text-white'
                   : 'bg-white border-slate-300 text-slate-900'
               }`}
               aria-label="Toggle dark mode"
+              style={{ zIndex: 9999, touchAction: 'manipulation' }}
             >
-              <img
-                src={isDarkMode ? moonIcon : sunIcon}
-                alt={isDarkMode ? 'Dark mode active' : 'Light mode active'}
-                style={{ filter: 'invert(1) brightness(1.15)' }}
-                className={`w-6 h-6 transform transition-all duration-300 ease-out ${
-                  isDarkMode ? 'rotate-0' : '-rotate-12'
-                } group-hover:scale-110`}
-              />
+              {isDarkMode ? (
+                <FaMoon className="w-6 h-6 transform transition-all duration-300 ease-out rotate-0 group-hover:scale-110" />
+              ) : (
+                <FaSun className="w-6 h-6 transform transition-all duration-300 ease-out -rotate-12 group-hover:scale-110" />
+              )}
             </button>
           </div>
 
           <div className="flex items-center gap-3 md:hidden relative z-50">
             <button
               type="button"
-              onClick={onThemeToggle}
-              className={`group flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
+              onPointerUp={(event: PointerEvent<HTMLButtonElement>) => {
+                const isTouch = event.pointerType !== 'mouse'
+                pointerTriggered.current = isTouch
+                if (isTouch) {
+                  onThemeToggle()
+                }
+              }}
+              onClick={(event: MouseEvent<HTMLButtonElement>) => {
+                if (pointerTriggered.current) {
+                  pointerTriggered.current = false
+                  return
+                }
+                onThemeToggle()
+              }}
+              className={`group pointer-events-auto flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
                 isDarkMode
                   ? 'bg-slate-900 border-slate-700 text-white'
                   : 'bg-white border-slate-300 text-slate-900'
               }`}
               aria-label="Toggle dark mode"
-              style={{ touchAction: 'manipulation', zIndex: 60 }}
+              style={{ zIndex: 9999, touchAction: 'manipulation' }}
             >
-              <img
-                src={isDarkMode ? moonIcon : sunIcon}
-                alt={isDarkMode ? 'Dark mode active' : 'Light mode active'}
-                style={{ filter: 'invert(1) brightness(1.15)' }}
-                className={`w-6 h-6 transform transition-all duration-300 ease-out ${
-                  isDarkMode ? 'rotate-0' : '-rotate-12'
-                } group-hover:scale-110`}
-              />
+              {isDarkMode ? (
+                <FaMoon className="w-6 h-6 transform transition-all duration-300 ease-out rotate-0 group-hover:scale-110" />
+              ) : (
+                <FaSun className="w-6 h-6 transform transition-all duration-300 ease-out -rotate-12 group-hover:scale-110" />
+              )}
             </button>
 
             <button
