@@ -97,13 +97,15 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
 
           <div className="flex items-center gap-3 md:hidden relative z-50">
             <button
+              type="button"
               onClick={onThemeToggle}
-              className={`group flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
+              className={`group flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 touch-manipulation ${
                 isDarkMode
                   ? 'bg-slate-900 border-slate-700 text-white'
                   : 'bg-white border-slate-300 text-slate-900'
               }`}
               aria-label="Toggle dark mode"
+              style={{ touchAction: 'manipulation' }}
             >
               <img
                 src={isDarkMode ? moonIcon : sunIcon}
@@ -116,9 +118,11 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             </button>
 
             <button
-              className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors relative z-50"
+              type="button"
+              className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors relative z-50 touch-manipulation"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
+              style={{ touchAction: 'manipulation' }}
             >
               {isMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
