@@ -1,0 +1,24 @@
+<svg width="640" height="420" viewBox="0 0 640 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="studentGradient" x1="0" y1="0" x2="640" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5E9" />
+      <stop offset="1" stop-color="#2563EB" />
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" rx="40" fill="url(#studentGradient)" />
+  <rect x="120" y="100" width="400" height="240" rx="32" fill="#F8FAFC" />
+  <rect x="150" y="130" width="140" height="170" rx="24" fill="#E0F2FE" />
+  <rect x="172" y="154" width="96" height="12" rx="6" fill="#0F172A" />
+  <rect x="172" y="182" width="74" height="10" rx="5" fill="#64748B" />
+  <rect x="172" y="206" width="86" height="10" rx="5" fill="#64748B" />
+  <rect x="172" y="238" width="78" height="34" rx="12" fill="#38BDF8" />
+  <rect x="320" y="130" width="170" height="78" rx="20" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" />
+  <rect x="344" y="154" width="92" height="12" rx="6" fill="#0F172A" />
+  <rect x="344" y="178" width="102" height="10" rx="5" fill="#94A3B8" />
+  <rect x="320" y="226" width="170" height="74" rx="20" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="2" />
+  <rect x="344" y="248" width="84" height="10" rx="5" fill="#0F172A" />
+  <rect x="344" y="270" width="112" height="10" rx="5" fill="#94A3B8" />
+  <circle cx="500" cy="170" r="20" fill="#38BDF8" />
+  <path d="M490 170L498 178L510 162" stroke="#F8FAFC" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="320" y="390" fill="#F8FAFC" font-size="40" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">Enrollment System</text>
+</svg>

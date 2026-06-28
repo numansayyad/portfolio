@@ -1,5 +1,5 @@
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
-import gptflowImage from '../assets/gptflow.svg'
+import studentEnrollmentImage from '../assets/student-enrollment.svg'
 import atmImage from '../assets/atm.svg'
 import appointmentImage from '../assets/appointment.svg'
 import postverseImage from '../assets/post-verse.svg'
@@ -16,13 +16,13 @@ interface Project {
 const Projects = () => {
   const projects: Project[] = [
     {
-      title: 'GPTflow Chatbot',
+      title: 'Student Enrollment Management System',
       description:
-        'A full-stack AI chatbot with real-time conversations, chat history, and OpenAI integration.',
-      technologies: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Express', 'OpenAI'],
-      githubUrl: 'https://github.com/numansayyad/GPTflow-Chatbott',
-      liveUrl: 'https://example.com',
-      image: gptflowImage,
+        'Developed a web-based enrollment management system using Java, Spring Boot, Spring MVC, Hibernate (JPA), JSP, and MySQL for student registration, updates, deletion, and record management.',
+      technologies: ['Java', 'Spring Boot', 'Spring MVC', 'Hibernate', 'JSP', 'MySQL'],
+      githubUrl: 'https://github.com/numansayyad/studentenrollmentform',
+      liveUrl: 'https://github.com/numansayyad/studentenrollmentform',
+      image: studentEnrollmentImage,
     },
     {
       title: 'ATM Banking System',
