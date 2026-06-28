@@ -10,20 +10,25 @@ import Footer from './components/Footer'
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
 
   useEffect(() => {
+    // Apply saved theme immediately on mount to prevent flickering
     const savedTheme = localStorage.getItem('theme')
     const initialTheme = savedTheme
       ? savedTheme === 'dark'
       : window.matchMedia('(prefers-color-scheme: dark)').matches
 
     setIsDarkMode(initialTheme)
+    document.documentElement.classList.toggle('dark', initialTheme)
+    setIsHydrated(true)
   }, [])
 
   useEffect(() => {
+    if (!isHydrated) return
     document.documentElement.classList.toggle('dark', isDarkMode)
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
-  }, [isDarkMode])
+  }, [isDarkMode, isHydrated])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +40,10 @@ function App() {
 
   const handleThemeToggle = () => {
     setIsDarkMode((prev) => !prev)
+  }
+
+  if (!isHydrated) {
+    return null
   }
 
   return (

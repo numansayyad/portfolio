@@ -95,7 +95,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             </button>
           </div>
 
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-3 md:hidden relative z-50">
             <button
               onClick={onThemeToggle}
               className={`group flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-300 shadow-md hover:scale-105 active:scale-95 ${
@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
             </button>
 
             <button
-              className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors"
+              className="text-slate-700 hover:text-primary-600 dark:text-slate-200 dark:hover:text-primary-400 transition-colors relative z-50"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -125,7 +125,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
           </div>
         </div>
 
-        <div className={`fixed inset-0 z-40 transition-all duration-300 ${isMenuOpen ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0 pointer-events-none'}`}>
+        <div className={`fixed inset-0 z-40 pointer-events-none transition-all duration-300 ${isMenuOpen ? 'visible opacity-100 pointer-events-auto' : 'invisible opacity-0'}`}>
           <div
             className="absolute inset-0 bg-slate-950/35 backdrop-blur-sm transition-opacity duration-300"
             onClick={() => setIsMenuOpen(false)}
