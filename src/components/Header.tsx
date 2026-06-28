@@ -1,6 +1,6 @@
 
 
-import { useState, useEffect, useRef, type PointerEvent, type MouseEvent } from 'react'
+import { useState, useEffect, useRef, type PointerEvent } from 'react'
 import { FaBars, FaTimes, FaMoon, FaSun } from 'react-icons/fa'
 
 interface HeaderProps {
@@ -83,7 +83,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
                   onThemeToggle()
                 }
               }}
-              onClick={(event: MouseEvent<HTMLButtonElement>) => {
+              onClick={() => {
                 if (pointerTriggered.current) {
                   pointerTriggered.current = false
                   return
@@ -116,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ isScrolled, isDarkMode, onThemeToggle }
                   onThemeToggle()
                 }
               }}
-              onClick={(event: MouseEvent<HTMLButtonElement>) => {
+              onClick={() => {
                 if (pointerTriggered.current) {
                   pointerTriggered.current = false
                   return
