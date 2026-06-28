@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -9,26 +9,34 @@ import Footer from './components/Footer'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isDarkMode, setIsDarkMode] = useState(false)
-  const [isHydrated, setIsHydrated] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    if (typeof window === 'undefined') {
+      return false
+    }
 
-  useEffect(() => {
-    // Apply saved theme immediately on mount to prevent flickering
-    const savedTheme = localStorage.getItem('theme')
-    const initialTheme = savedTheme
-      ? savedTheme === 'dark'
-      : window.matchMedia('(prefers-color-scheme: dark)').matches
+    try {
+      const savedTheme = window.localStorage.getItem('theme')
+      if (savedTheme) {
+        return savedTheme === 'dark'
+      }
+    } catch (error) {
+      // LocalStorage may be unavailable on some mobile browsers
+    }
 
-    setIsDarkMode(initialTheme)
-    document.documentElement.classList.toggle('dark', initialTheme)
-    setIsHydrated(true)
-  }, [])
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
 
-  useEffect(() => {
-    if (!isHydrated) return
+  useLayoutEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode)
-    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
-  }, [isDarkMode, isHydrated])
+  }, [isDarkMode])
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem('theme', isDarkMode ? 'dark' : 'light')
+    } catch (error) {
+      // Ignore storage errors on restricted mobile browsers
+    }
+  }, [isDarkMode])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,10 +48,6 @@ function App() {
 
   const handleThemeToggle = () => {
     setIsDarkMode((prev) => !prev)
-  }
-
-  if (!isHydrated) {
-    return null
   }
 
   return (
