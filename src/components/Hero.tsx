@@ -41,8 +41,8 @@ const Hero = () => {
             </a>
 
             <a
-              href="java.pdf"
-              download
+              href="/java.pdf"
+              download="Numan-Sayyad-Resume.pdf"
               className="bg-white text-primary-600 border-2 border-primary-600 px-6 sm:px-8 py-3 rounded-2xl font-semibold hover:bg-primary-50 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl flex items-center justify-center gap-2 min-w-[160px] no-underline"
             >
               <FaDownload /> Download Resume
